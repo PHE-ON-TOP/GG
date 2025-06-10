@@ -1,0 +1,107 @@
+:root {
+    --bg: #111;
+    --card-bg: #111;
+    --accent: #222;
+    --text-light: #ffffff50;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: transparent;
+}
+body {
+    background: var(--bg);
+    color: var(--text-light);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 2rem;
+}
+h1 {
+    margin-bottom: 25px;
+}
+.categories {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+.categories button {
+    background: none;
+    border: 1px solid var(--text-light);
+    color: var(--text-light);
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+.categories button.active {
+    background: var(--accent);
+    border-color: #c7c7c7;
+    color: #c7c7c7;
+}
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+}
+.image-frame {
+    background: var(--card-bg);
+    border: 10px solid var(--accent);
+    border-radius: 1rem;
+    box-shadow: 0 0 0 1.5px #ffffff50;
+    overflow: hidden;
+    position: relative;
+    aspect-ratio: 1 / 1;
+}
+.image-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    -webkit-user-drag: none;
+    user-drag: none;
+}
+
+.lightbox {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.8);
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+}
+.lightbox.active {
+    display: flex;
+}
+.lightbox-credit {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 3rem;
+    font-weight: bold;
+    opacity: 0.3;
+    pointer-events: none;
+    user-select: none;
+}
+.lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+}
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 2rem;
+    color: #fff;
+    cursor: pointer;
+}
